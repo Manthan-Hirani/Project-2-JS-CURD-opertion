@@ -59,7 +59,7 @@ function showData() {
             html +=
                 '<td><button onclick="deleteData(' +
                 index +
-                ')"class="btn btn-success mx-1">delete</button><button data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="updateData(' +
+                ')"class="btn btn-success mx-1">delete</button><button data-bs-toggle="modal" onclick="updateData(' +
                 index +
                 ')"class="btn btn-warning mx-3">Edit</button>';
             html += "</tr>";
@@ -142,6 +142,8 @@ function deleteData(index) {
 
 // Edit data
 function updateData(index) {
+
+    console.log("Inside updateData");
 
     document.getElementById("saveBtn").style.display = "none";
     document.getElementById("Update").style.display = "block";
@@ -227,7 +229,7 @@ function genderV() {
         document.getElementById("errorGender").style.display = "block"
         document.getElementById("errorGender").style.color = "red"     
     }
-    else if (Gender == "Male" || Gender == "Female") {        
+    else if (Gender.value == "Male" || Gender.value == "Female") {        
         document.getElementById("errorGender").style.display = "none"
     }
     else {

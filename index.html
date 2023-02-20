@@ -1,122 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <title>Project-2</title>
-        <script src="index.js" defer></script>
-        <link rel="stylesheet" href="index.css">
-    </head>
 
-    <body onload="showData()">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Project-2</title>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="index.css">
+</head>
 
-        <h1 style="color: orange; text-align: center;">User Details</h1>
-        <p style="color: green; text-align: center;">Add, Update,Delete</p>
+<body onload="showData()">
 
-        <!-- Button trigger modal -->
-        <div style="text-align: end; margin-right: 10px;">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                data-bs-whatever="@getbootstrap" onclick="hideUpdateBtn()">Add details</button>
-        </div>
+    <h1 style="color: orange; text-align: center;">User Details</h1>
+    <p style="color: green; text-align: center;">Add, Update,Delete</p>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">User details</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form class="needs-validation" novalidate>
-                            <div class="mb-3">
-                                <label for="name" class="col-form-label">Name:</label>
-                                <input type="text" class="form-control name" id="name" placeholder="Enter name" onblur="nameV()"
-                                    required>
-                                <div id="errorName" style="display: none;">
-                                    Please enter name.
-                                </div>
+    <!-- Button trigger modal -->
+    <div style="text-align: end; margin-right: 10px;">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            data-bs-whatever="@getbootstrap" onclick="hideUpdateBtn()">Add details</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">User details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control name" id="name" placeholder="Enter name"
+                                onblur="nameV()" required>
+                            <div id="errorName" style="display: none;">
+                                Please enter name.
                             </div>
-                            <div class="mb-3">
-                                <label for="address" class="col-form-label">Address:</label>
-                                <textarea class="form-control address" id="address" placeholder="Enter address" onblur="addressV()"
-                                    required></textarea>
-                                <div id="errorAddress" style="display: none;">
-                                    Please enter address.
-                                </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="col-form-label">Address:</label>
+                            <textarea class="form-control address" id="address" placeholder="Enter address"
+                                onblur="addressV()" required></textarea>
+                            <div id="errorAddress" style="display: none;">
+                                Please enter address.
                             </div>
-                            <div class="mb-3">
-                                <label for="email" class="col-form-label">Email:</label>
-                                <input type="email" class="form-control email" id="email" placeholder="Enter email" onblur="emailV()" required>
-                                <div id="errorEmail" style="display:none">
-                                    Please enter valid email.
-                                </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="col-form-label">Email:</label>
+                            <input type="email" class="form-control email" id="email" placeholder="Enter email"
+                                onblur="emailV()" required>
+                            <div id="errorEmail" style="display:none">
+                                Please enter valid email.
                             </div>
-                            <div class="mb-3" id="gender">Select gender:
-                                <div class="form-check">
-                                    <input class="form-check-input gender" type="radio" name="gender" value="Male" onblur="genderV()"
-                                        id="flexRadioDefault1" required onclick="removeError()">
-                                    <label class="form-check-label" for="flexRadioDefault1" required>
-                                        Male
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input gender" type="radio" name="gender" value="Female" onblur="genderV()"
-                                        id="flexRadioDefault2" required onclick="removeError()">
-                                    <label class="form-check-label" for="flexRadioDefault2">
-                                        Female
-                                    </label>
-                                </div>
-                                <div id="errorGender" style="display: none;">
-                                    Please select a gender.
-                                </div>
+                        </div>
+                        <div class="mb-3" id="gender">Select gender:
+                            <div class="form-check">
+                                <input class="form-check-input gender" type="radio" name="gender" value="Male"
+                                    onblur="genderV()" id="flexRadioDefault1" required onclick="removeError()">
+                                <label class="form-check-label" for="flexRadioDefault1" required>
+                                    Male
+                                </label>
                             </div>
-                            <div class="mb-3">
-                                <label for="date" class="col-form-label">Select Date:</label>
-                                <input type="date" class="form-control const {propertyName} = objectToDestruct;" onblur="dateV()"
-                                    id="date" required>
-                                <div id="errorDate" style="display: none;">
-                                    Please enter date.
-                                </div>
+                            <div class="form-check">
+                                <input class="form-check-input gender" type="radio" name="gender" value="Female"
+                                    onblur="genderV()" id="flexRadioDefault2" required onclick="removeError()">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Female
+                                </label>
                             </div>
-                            <div class="modal-footer">
-                                <button id="Update" type="button" class="btn btn-primary" data-bs-dismiss="modal"
-                                    onclick="addData()">
-                                    Update
-                                </button>
-                                <button type="button" id="saveBtn" class="btn btn-primary" value="Submit" onclick="addData()">Save</button>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <div id="errorGender" style="display: none;">
+                                Please select a gender.
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="col-form-label">Select Date:</label>
+                            <input type="date" class="form-control const {propertyName} = objectToDestruct;"
+                                onblur="dateV()" id="date" required>
+                            <div id="errorDate" style="display: none;">
+                                Please enter date.
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="Update" type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                                onclick="addData()">
+                                Update
+                            </button>
+                            <button type="button" id="saveBtn" class="btn btn-primary" value="Submit"
+                                onclick="addData()">Save</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
-        <table class="m-5 text-center align-self-center" id="displayDataTable">
-            <thead>
-                    <tr>                    
-                        <td>Name</td>
-                        <td>Address</td>
-                        <td>Email</td>
-                        <td>Gender</td>
-                        <td>B-date</td>
-                        <td>Action</td>
-                    </tr>
-                    <tr id="dnf"></tr>
-                </thead>
-            <tbody></tbody>
-        </table>
-        <div>
-            Clear this    
-        </div>
+    <table class="m-5 text-center align-self-center" id="displayDataTable">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Address</td>
+                <td>Email</td>
+                <td>Gender</td>
+                <td>B-date</td>
+                <td>Action</td>
+            </tr>
+            <tr id="dnf"></tr>
+        </thead>
+        <tbody></tbody>
+    </table>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
 
 </html>
